@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/__Project Assets/Scenes/Levels/Boot Loader/BootLoader.unity
+    guid: eb1615703268be049a09b59844a7ed6a
+  - enabled: 1
+    path: Assets/__Project Assets/Scenes/Levels/LoadingScreen Logic/MainLoadingScreen.unity
+    guid: 6b31626b7c8bedb498cf51f48a0115eb
+  - enabled: 1
+    path: Assets/__Project Assets/Scenes/Levels/Menu Logic/MainMenu.unity
+    guid: cd54a61ea83bf8344a06fb6e5e5f8e35
+  - enabled: 1
+    path: Assets/__Project Assets/Scenes/Game Modes/SinglePlayer Mode/Plays/Singleplayer
+      Mode - MainPlayScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: f895e645e98231e4da25ca85aa98a8b0,
+      type: 2}

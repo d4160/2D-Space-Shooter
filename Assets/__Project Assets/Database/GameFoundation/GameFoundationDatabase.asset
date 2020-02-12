@@ -1,0 +1,264 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8759115879808677718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99a121bc2d8644fcb8f5f5ed98363908, type: 3}
+  m_Name: wallet_Inventory
+  m_EditorClassIdentifier: 
+  m_DisplayName: Wallet
+  m_Id: wallet
+  m_Hash: 2087227935
+  m_ReferenceDefinition: {fileID: 0}
+  m_Categories: 
+  m_DetailDefinitionValues: []
+  m_DefaultItems: []
+--- !u!114 &-8271640723892658773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0045a420c8b2b474eb4c14cf512c1cb5, type: 3}
+  m_Name: normalModePlayerStats_GameItem_Detail_Stat
+  m_EditorClassIdentifier: 
+  m_StatDefaultIntValues_Keys: 969cda51
+  m_StatDefaultIntValues_Values: 00000000
+  m_StatDefaultFloatValues_Keys: eaca6441
+  m_StatDefaultFloatValues_Values:
+  - 0
+--- !u!114 &-7839634815165020034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: playerSpaceship_InventoryItem
+  m_EditorClassIdentifier: 
+  m_DisplayName: Player Spaceship
+  m_Id: playerSpaceship
+  m_Hash: 9833133
+  m_ReferenceDefinition: {fileID: -1821385166148359717}
+  m_Categories: 
+  m_DetailDefinitionValues: []
+--- !u!114 &-6068725934135142499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b88f5bccd054f984d9be6ad05294da40, type: 3}
+  m_Name: _Catalog_Stats
+  m_EditorClassIdentifier: 
+  m_StatDefinitions:
+  - m_Id: highScore
+    m_IdHash: 1373281430
+    m_DisplayName: HighScore
+    m_StatValueType: 0
+  - m_Id: bestTime
+    m_IdHash: 1097124586
+    m_DisplayName: BestTime
+    m_StatValueType: 1
+  - m_Id: powerUpDuration
+    m_IdHash: 1869339460
+    m_DisplayName: PowerUp Duration
+    m_StatValueType: 1
+--- !u!114 &-5506334369494183319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0045a420c8b2b474eb4c14cf512c1cb5, type: 3}
+  m_Name: playerSpaceship_GameItem_Detail_Stat
+  m_EditorClassIdentifier: 
+  m_StatDefaultIntValues_Keys: 
+  m_StatDefaultIntValues_Values: 
+  m_StatDefaultFloatValues_Keys: 44db6b6f
+  m_StatDefaultFloatValues_Values:
+  - 5
+--- !u!114 &-5081468089454897730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dbf3f8defcf78f428d1448085483eff, type: 3}
+  m_Name: normalModePlayerStats_GameItem
+  m_EditorClassIdentifier: 
+  m_DisplayName: Singleplayer Mode Stats
+  m_Id: normalModePlayerStats
+  m_Hash: -957969261
+  m_ReferenceDefinition: {fileID: 0}
+  m_Categories: 
+  m_DetailDefinitionValues:
+  - {fileID: -8271640723892658773}
+--- !u!114 &-1821385166148359717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dbf3f8defcf78f428d1448085483eff, type: 3}
+  m_Name: playerSpaceship_GameItem
+  m_EditorClassIdentifier: 
+  m_DisplayName: Player Spaceship
+  m_Id: playerSpaceship
+  m_Hash: 9833133
+  m_ReferenceDefinition: {fileID: 0}
+  m_Categories: 
+  m_DetailDefinitionValues:
+  - {fileID: -5506334369494183319}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6d6d794703b5406883240f543e5b084, type: 3}
+  m_Name: GameFoundationDatabase
+  m_EditorClassIdentifier: 
+  m_GameItemCatalog: {fileID: 3038500289691076915}
+  m_InventoryCatalog: {fileID: 2925243549249583261}
+  m_StatCatalog: {fileID: -6068725934135142499}
+--- !u!114 &1573851832099388060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: tripleShotPowerUp_InventoryItem
+  m_EditorClassIdentifier: 
+  m_DisplayName: TripleShot PowerUp
+  m_Id: tripleShotPowerUp
+  m_Hash: -1453116812
+  m_ReferenceDefinition: {fileID: 0}
+  m_Categories: 
+  m_DetailDefinitionValues:
+  - {fileID: 6306514070987183922}
+--- !u!114 &2925243549249583261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b084f2c338a4185ab8badeed2a3947, type: 3}
+  m_Name: _Catalog_Inventories
+  m_EditorClassIdentifier: 
+  m_Categories: []
+  m_CollectionDefinitions:
+  - {fileID: 8549840880841803517}
+  - {fileID: -8759115879808677718}
+  m_ItemDefinitions:
+  - {fileID: 8277750477074419712}
+  - {fileID: -7839634815165020034}
+  - {fileID: 1573851832099388060}
+  m_DefaultCollectionDefinitions: []
+--- !u!114 &3038500289691076915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7bd278f724ab94d891fb484af87b44, type: 3}
+  m_Name: _Catalog_GameItems
+  m_EditorClassIdentifier: 
+  m_Categories: []
+  m_Definitions:
+  - {fileID: -5081468089454897730}
+  - {fileID: -1821385166148359717}
+--- !u!114 &6306514070987183922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f2f0defaa6a04ebf8ab6928cabe7095, type: 3}
+  m_Name: tripleShotPowerUp_InventoryItem_Detail_PrefabAssets
+  m_EditorClassIdentifier: 
+  m_Keys:
+  - Prefab
+  m_Values:
+  - {fileID: 6483962987133079234, guid: bec9bf69562958d45968410b885f1961, type: 3}
+--- !u!114 &8277750477074419712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: normalModePlayerStats_InventoryItem
+  m_EditorClassIdentifier: 
+  m_DisplayName: Singleplayer Mode Stats
+  m_Id: normalModePlayerStats
+  m_Hash: -957969261
+  m_ReferenceDefinition: {fileID: -5081468089454897730}
+  m_Categories: 
+  m_DetailDefinitionValues: []
+--- !u!114 &8549840880841803517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99a121bc2d8644fcb8f5f5ed98363908, type: 3}
+  m_Name: main_Inventory
+  m_EditorClassIdentifier: 
+  m_DisplayName: Main
+  m_Id: main
+  m_Hash: -1087845020
+  m_ReferenceDefinition: {fileID: 0}
+  m_Categories: 
+  m_DetailDefinitionValues: []
+  m_DefaultItems:
+  - m_DefinitionHash: -957969261
+    m_Quantity: 1
+  - m_DefinitionHash: 9833133
+    m_Quantity: 1
