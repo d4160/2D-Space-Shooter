@@ -691,6 +691,7 @@ MonoBehaviour:
     type: 2}
   m_calculateAtStart: 0
   m_difficultyLevelToSetAtStart: 1
+  m_oneStatDefinitionForAll: 0
   m_onStatUpdated:
     m_PersistentCalls:
       m_Calls: []
@@ -700,7 +701,18 @@ MonoBehaviour:
       m_Calls: []
   m_onTimerOver:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &765100915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1314,9 +1326,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb7a4320a2a41a4b9f82e80167d18e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useECS: 0
-  _laserPrefab: {fileID: 4018903714582854659, guid: 698fd0b3864586e4e85aa2efe8f2bf0c,
-    type: 3}
+  _prefab: {fileID: 0}
+  _useECS: 0
   _fireBySeconds: 7
   _instanceOffset: {x: 0, y: 1.05}
   _overrideSpeed: 0
