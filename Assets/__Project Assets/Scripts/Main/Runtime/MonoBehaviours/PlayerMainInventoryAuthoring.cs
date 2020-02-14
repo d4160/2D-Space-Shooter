@@ -15,7 +15,7 @@ public class PlayerMainInventoryAuthoring : InventoryItemEvents
                 if (prefabAssets)
                 {
                     var prefab = prefabAssets.GetAsset("Prefab");
-
+                    PlayerLaserFactory.Instance.OverridenPrefab = prefab;
                 }
 
                 break;
