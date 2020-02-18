@@ -8,13 +8,13 @@ using Unity.Transforms;
 using UnityEngine;
 
 [AlwaysSynchronizeSystem]
-public class DestroySystem : JobComponentSystem
+public class DestroyByLimitsSystem : JobComponentSystem
 {
     protected override JobHandle OnUpdate(JobHandle inputDeps)
     {
         EntityCommandBuffer ecb = new EntityCommandBuffer(Allocator.TempJob);
 
-        Entities.ForEach((Entity entity, in LimitsData limits, in Translation trans) =>
+        Entities.ForEach((Entity entity, in Limits limits, in Translation trans) =>
         {
             float3 pos = trans.Value;
             if (pos.y > limits.yUpperLimit)

@@ -79,6 +79,14 @@ MonoBehaviour:
     m_IdHash: 1869339460
     m_DisplayName: PowerUp Duration
     m_StatValueType: 1
+  - m_Id: health
+    m_IdHash: -824564973
+    m_DisplayName: Health
+    m_StatValueType: 0
+  - m_Id: speed
+    m_IdHash: 254213878
+    m_DisplayName: Speed
+    m_StatValueType: 1
 --- !u!114 &-5506334369494183319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,11 +99,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0045a420c8b2b474eb4c14cf512c1cb5, type: 3}
   m_Name: playerSpaceship_GameItem_Detail_Stat
   m_EditorClassIdentifier: 
-  m_StatDefaultIntValues_Keys: 
-  m_StatDefaultIntValues_Values: 
-  m_StatDefaultFloatValues_Keys: 44db6b6f
+  m_StatDefaultIntValues_Keys: 1323dace
+  m_StatDefaultIntValues_Values: 03000000
+  m_StatDefaultFloatValues_Keys: 44db6b6ff6fe260f
   m_StatDefaultFloatValues_Values:
   - 5
+  - 10
 --- !u!114 &-5081468089454897730
 MonoBehaviour:
   m_ObjectHideFlags: 0

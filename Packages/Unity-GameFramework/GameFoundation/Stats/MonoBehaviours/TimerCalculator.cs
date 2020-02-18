@@ -3,7 +3,7 @@ using d4160.Utilities;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace d4160.Systems.Flow
+namespace d4160.GameFoundation
 {
     public class TimerCalculator : StatCalculatorBase
     {

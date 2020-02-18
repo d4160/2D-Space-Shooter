@@ -18,3 +18,7 @@ MonoBehaviour:
       m_id: 1
       m_scenes:
         array: []
+    - m_name: World 2
+      m_id: 2
+      m_scenes:
+        array: []

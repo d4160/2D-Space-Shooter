@@ -1,4 +1,5 @@
-﻿// A system which adds caching information to dynamic bodies that enter, persist and leave
+﻿// NEED EDIT
+// A system which adds caching information to dynamic bodies that enter, persist and leave
 // a Trigger Volume. 
 // A Trigger Volume is defined by a PhysicsShapeAuthoring with the `Is Trigger` flag ticked and a
 // TriggerVolume behaviour added. Each trigger volume can be a different type. 

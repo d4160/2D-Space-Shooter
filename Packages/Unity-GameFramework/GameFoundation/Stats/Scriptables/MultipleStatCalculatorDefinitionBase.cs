@@ -1,16 +1,18 @@
 ﻿using System.Linq;
 using d4160.Core;
 using d4160.Core.Attributes;
+using Malee;
 using UnityEngine.GameFoundation;
 
-namespace d4160.Systems.Flow
+namespace d4160.GameFoundation
 {
     using UnityEngine;
 
     public abstract class MultipleStatCalculatorDefinitionBase : ScriptableObject, IMultipleStatCalculator
     {
-        [SerializeField]
-        protected ItemStatPair[] _itemStatPairs;
+        [SerializeField] protected bool _useFirstStatForAllCalculations;
+        [SerializeField] [Reorderable(pageSize = 10, paginate = true)]
+        protected ItemStatPairReorderableList _itemStatPairs;
 
 #if UNITY_EDITOR
         protected string[] StatNames => StatManager.catalog.GetStatDefinitions().Select((x) => x.displayName).ToArray();
@@ -20,7 +22,12 @@ namespace d4160.Systems.Flow
         public StatDefinition GetStat(int index) => _itemStatPairs.IsValidIndex(index) ? StatManager.catalog.GetStatDefinitions()[_itemStatPairs[index].stat] : null;
         public InventoryItem GetItem(int index) => _itemStatPairs.IsValidIndex(index) ? Inventory.main.GetItem(InventoryManager.catalog.GetItemDefinitions()[_itemStatPairs[index].item]) : null;
 
-        public abstract float[] CalculateStat(int difficultyLevel = 1);
+        public abstract float[] CalculateStats(int difficultyLevel = 1);
         public abstract float CalculateStat(int index, int difficultyLevel = 1);
+    }
+
+    [System.Serializable]
+    public class ItemStatPairReorderableList : ReorderableArray<ItemStatPair>
+    {
     }
 }

@@ -42,7 +42,8 @@ namespace d4160.GameFramework
 
         public virtual void Deinitialize()
         {
-            _assetStore.Dispose();
+            if (_assetStore != null)
+                _assetStore.Dispose();
         }
 
         public virtual void ConvertGameObjectPrefab()

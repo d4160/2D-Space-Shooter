@@ -125,7 +125,7 @@ public class Player : MonoBehaviour
         _lives--;
         if (_lives < 1)
         {
-            EnemySpawnManager.Instance.StopSpawnRoutine();
+            EnemySpawner.Instance.StopSpawnRoutine();
 
             Destroy(gameObject);
         }

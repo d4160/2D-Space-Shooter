@@ -6,6 +6,7 @@ using Unity.Jobs;
 using Unity.Mathematics;
 using Unity.Transforms;
 using static Unity.Mathematics.math;
+using float2 = Unity.Mathematics.float2;
 
 [AlwaysSynchronizeSystem]
 public class PlayerMovementSystem : JobComponentSystem
@@ -21,7 +22,7 @@ public class PlayerMovementSystem : JobComponentSystem
             .WithAll<PlayerTag>()
             .ForEach(
             (ref Translation trans, 
-             in MovementData mov) =>
+             in Movement2D mov) =>
             {
                 float2 newPos = trans.Value.xy;
                 float2 movement = mov.direction * mov.speed * deltaTime;

@@ -13,7 +13,7 @@ public class HealthSystem : JobComponentSystem
         EntityCommandBuffer ecb = new EntityCommandBuffer(Allocator.TempJob);
         bool destroyed = false;
 
-        Entities.ForEach((Entity entity, in HealthData health) =>
+        Entities.ForEach((Entity entity, in Health health) =>
         {
             if (health.lives < 1)
             {
@@ -26,7 +26,7 @@ public class HealthSystem : JobComponentSystem
         ecb.Dispose();
 
         if (destroyed)
-            EnemySpawnManager.Instance.StopSpawnRoutine();
+            EnemySpawner.Instance.StopSpawnRoutine();
 
         return default;
     }

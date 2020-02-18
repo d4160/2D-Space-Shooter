@@ -19,7 +19,7 @@
             System.Action onInitializeCompleted = null,
             System.Action onInitializeFailed = null);
 
-        void Uninitialize();
+        void Deinitialize();
 
         void Load(
             IDataPersistence dataPersistence,

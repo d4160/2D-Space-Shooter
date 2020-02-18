@@ -16,7 +16,7 @@ public class PlayerInputSystem : JobComponentSystem
         Entities
             .WithAll<PlayerTag>()
             .WithoutBurst()
-            .ForEach((ref MovementData mov, in Translation trans) =>
+            .ForEach((ref Movement2D mov, in Translation trans) =>
             {
                 mov.direction = direction;
                 manager.PlayerPosition = new Vector2(trans.Value.x, trans.Value.y);

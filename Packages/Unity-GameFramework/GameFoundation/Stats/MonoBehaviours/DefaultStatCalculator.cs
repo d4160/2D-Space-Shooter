@@ -1,11 +1,12 @@
 ﻿using d4160.Utilities;
+using UltEvents;
 using UnityEngine;
 
-namespace d4160.Systems.Flow
+namespace d4160.GameFoundation
 {
     public class DefaultStatCalculator : StatCalculatorBase
     {
-        [SerializeField] protected UnityUtilities.FloatEvent m_onPartialStatUpdated;
+        [SerializeField] protected FloatUltEvent m_onPartialStatUpdated;
 
         public virtual int PartialIntStat => (int)PartialFloatStat;
 

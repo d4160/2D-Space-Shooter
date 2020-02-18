@@ -12,6 +12,8 @@
         public Inventory MainInventory => Inventory.main;
         public Inventory Wallet => InventoryManager.wallet;
 
+        public Inventory GetInventoryAt(int index) => InventoryManager.GetInventories()[index];
+
         public override T GetScriptable<T>(int dataIdx = 0)
         {
             var database = GameFoundationSettings.database;

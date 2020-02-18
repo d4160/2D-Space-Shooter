@@ -10,8 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5087f1c8126d18545b5ec4bd32fb9e37, type: 3}
-  m_Name: PowerUpDuration Calculator
+  m_Name: PlayerSpaceship Stats Calculator
   m_EditorClassIdentifier: 
+  _useFirstStatForAllCalculations: 0
   _itemStatPairs:
-  - item: 1
-    stat: 2
+    array:
+    - item: 1
+      stat: 3
+    - item: 1
+      stat: 4

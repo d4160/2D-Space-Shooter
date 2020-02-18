@@ -1,4 +1,4 @@
-﻿namespace d4160.Systems.Flow
+﻿namespace d4160.GameFoundation
 {
     public interface IStatCalculator
     {
@@ -7,7 +7,7 @@
 
     public interface IMultipleStatCalculator
     {
-        float[] CalculateStat(int difficultyLevel = 1);
+        float[] CalculateStats(int difficultyLevel = 1);
 
         float CalculateStat(int index, int difficultyLevel = 1);
     }

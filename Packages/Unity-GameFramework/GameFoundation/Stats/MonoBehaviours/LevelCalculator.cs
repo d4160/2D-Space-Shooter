@@ -1,4 +1,4 @@
-﻿namespace d4160.Systems.Flow
+﻿namespace d4160.GameFoundation
 {
     public class LevelCalculator : StatCalculatorBase
     {

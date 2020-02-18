@@ -2,7 +2,7 @@
 using d4160.Core.Attributes;
 using UnityEngine.GameFoundation;
 
-namespace d4160.Systems.Flow
+namespace d4160.GameFoundation
 {
     using UnityEngine;
 
@@ -17,7 +17,7 @@ namespace d4160.Systems.Flow
 #endif
 
         public StatDefinition Stat => StatManager.catalog.GetStatDefinitions()[_itemStatPair.stat];
-        public InventoryItem Item => Inventory.main.GetItem(InventoryManager.catalog.GetItemDefinitions()[_itemStatPair.item]);
+        public InventoryItem Item => UnityEngine.GameFoundation.Inventory.main.GetItem(InventoryManager.catalog.GetItemDefinitions()[_itemStatPair.item]);
 
         public abstract float CalculateStat(int difficultyLevel = 1);
     }

@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-namespace d4160.Systems.Flow
+namespace d4160.GameFoundation
 {
     public abstract class DefaultGenericStatCalculator<T1, T2> : StatCalculatorBase<T1, T2> where T1 : StatCalculatorDefinitionBase<T2>
     {
-        [SerializeField] protected UnityEvent m_onPartialStatUpdated;
+        [SerializeField] protected UltEvent m_onPartialStatUpdated;
 
         protected T2 m_partialStatValue;
 

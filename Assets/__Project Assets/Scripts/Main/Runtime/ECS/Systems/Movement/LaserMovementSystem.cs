@@ -14,7 +14,7 @@ public class LaserMovementSystem : JobComponentSystem
 
         Entities
             .WithAll<LaserTag>()
-            .ForEach((ref Translation trans, in MovementData mov) =>
+            .ForEach((ref Translation trans, in Movement2D mov) =>
                 {
                     trans.Value.xy += (mov.direction * mov.speed * deltaTime);
                 }).Run();

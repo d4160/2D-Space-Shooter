@@ -1,6 +1,6 @@
 ﻿using d4160.Core.Attributes;
 
-namespace d4160.Systems.Flow
+namespace d4160.GameFoundation
 {
     [System.Serializable]
     public struct ItemStatPair

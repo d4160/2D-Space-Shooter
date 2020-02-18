@@ -14,8 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializedNodes:
   - type: PrefabOverrideTalentNode, Main, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    jsonDatas: '{"GUID":"986b47b9-9f21-41d8-a721-7d8c569cfc44","computeOrder":1,"canProcess":true,"position":{"serializedVersion":"2","x":92.0,"y":-632.0,"width":382.0,"height":135.0},"expanded":true,"debug":false,"nodeLock":false,"_actived":true,"_definition":{"fileID":11400000,"guid":"f49ae5d86eb7c4e419e52569a4689a73","type":2},"_prefab":{"fileID":6483962987133079234,"guid":"bec9bf69562958d45968410b885f1961","type":3}}'
-  edges: []
+    jsonDatas: '{"GUID":"986b47b9-9f21-41d8-a721-7d8c569cfc44","computeOrder":1,"canProcess":true,"position":{"serializedVersion":"2","x":-182.75,"y":-747.0840454101563,"width":379.00006103515627,"height":135.00001525878907},"expanded":true,"debug":false,"nodeLock":false,"_actived":true,"_definition":{"fileID":11400000,"guid":"f49ae5d86eb7c4e419e52569a4689a73","type":2},"_prefab":{"fileID":6483962987133079234,"guid":"bec9bf69562958d45968410b885f1961","type":3}}'
+  - type: PrefabOverrideTalentNode, Main, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    jsonDatas: '{"GUID":"bbd62c62-a711-4cc2-8691-7cad18ad73cf","computeOrder":2,"canProcess":true,"position":{"serializedVersion":"2","x":17.299999237060548,"y":-935.33203125,"width":330.00006103515627,"height":135.00001525878907},"expanded":false,"debug":false,"nodeLock":false,"_actived":false,"_definition":{"instanceID":0},"_prefab":{"instanceID":0}}'
+  edges:
+  - GUID: 97cdbe11-ee4e-4d9d-9f4e-b2e46793977b
+    owner: {fileID: 11400000}
+    inputNodeGUID: bbd62c62-a711-4cc2-8691-7cad18ad73cf
+    outputNodeGUID: 986b47b9-9f21-41d8-a721-7d8c569cfc44
+    inputFieldName: input
+    outputFieldName: output
+    inputPortIdentifier: 
+    outputPortIdentifier: 
   commentBlocks: []
   pinnedElements:
   - position:
@@ -39,5 +49,5 @@ MonoBehaviour:
       serializedType: GraphProcessor.ExposedParameterView, com.alelievr.NodeGraphProcessor.Editor,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   exposedParameters: []
-  position: {x: 200, y: 708.8, z: 0}
+  position: {x: 200, y: 968, z: 0}
   scale: {x: 0.8695652, y: 0.8695652, z: 1}

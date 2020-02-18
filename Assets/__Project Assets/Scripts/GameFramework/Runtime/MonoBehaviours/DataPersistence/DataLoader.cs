@@ -92,9 +92,9 @@
             //Debug.Log("Loader initialized.");
         }
 
-        public override void Uninitialize()
+        public override void Deinitialize()
         {
-            base.Uninitialize();
+            base.Deinitialize();
 
             //Debug.Log("Loader uninitialized.");
         }

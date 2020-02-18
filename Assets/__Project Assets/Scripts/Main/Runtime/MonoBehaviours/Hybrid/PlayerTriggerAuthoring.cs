@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using d4160.GameFoundation;
+﻿using d4160.GameFoundation;
 using UltEvents;
 using UnityEngine;
 using UnityEngine.GameFoundation;

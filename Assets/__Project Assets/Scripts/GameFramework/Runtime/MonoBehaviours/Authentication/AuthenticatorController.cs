@@ -14,7 +14,7 @@
     {
         public override void Login(Action onCompleted, Action onFailed = null)
         {
-            NotificationPrefabsManagerBase.Instance.InstancedMain.Notify("Authenticating...", 1.5f);
+            NotificationPrefabsManagerBase.Instance.InstancedMain?.Notify("Authenticating...", 1.5f);
             //ProgressPrefabsManagerBase.Instance.InstancedMain.StartLoop();
 
             base.Login(onCompleted, onFailed);
@@ -37,19 +37,19 @@
                                 RequestPhotonToken(result, onCompleted);
                             else
                             {
-                                NotificationPrefabsManagerBase.Instance.InstancedMain.Notify("Authentication complete.", 1.5f);
+                                NotificationPrefabsManagerBase.Instance.InstancedMain?.Notify("Authentication complete.", 1.5f);
 
                                 onCompleted?.Invoke();
                             }
                             
                         }, () =>
                         {
-                            NotificationPrefabsManagerBase.Instance.InstancedMain.Notify("That name is not available.", 1.5f);
+                            NotificationPrefabsManagerBase.Instance.InstancedMain?.Notify("That name is not available.", 1.5f);
                         });
                     },
                     (error) =>
                     {
-                        NotificationPrefabsManagerBase.Instance.InstancedMain.Notify("Something went wrong, check your internet connection.", 1.5f);
+                        NotificationPrefabsManagerBase.Instance.InstancedMain?.Notify("Something went wrong, check your internet connection.", 1.5f);
 
                         onFailed?.Invoke();
                         Debug.LogError($"Error with PlayFab CustomIdAuthenticator: {error.GenerateErrorReport()}");
@@ -92,7 +92,8 @@
 
         private void RequestPhotonToken(LoginResult obj, Action onCompleted = null) {
             LogMessage("PlayFab authenticated. Requesting photon token...");
-            NotificationPrefabsManagerBase.Instance.InstancedMain.Notify("Authenticating to Photon Unity Networking.", 1.5f);
+
+            NotificationPrefabsManagerBase.Instance.InstancedMain?.Notify("Authenticating to Photon Unity Networking.", 1.5f);
 
             PlayFabClientAPI.GetPhotonAuthenticationToken(new GetPhotonAuthenticationTokenRequest()
             {
@@ -100,7 +101,7 @@
             }, (result) => {
                 AuthenticateWithPhoton(result);
 
-                NotificationPrefabsManagerBase.Instance.InstancedMain.Notify("Authentication complete.", 1.5f);
+                NotificationPrefabsManagerBase.Instance.InstancedMain?.Notify("Authentication complete.", 1.5f);
 
                 onCompleted?.Invoke();
             }, OnPlayFabError);

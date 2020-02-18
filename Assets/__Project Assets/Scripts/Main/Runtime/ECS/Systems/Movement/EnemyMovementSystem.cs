@@ -21,7 +21,7 @@ public class EnemyMovementSystem : JobComponentSystem
         Entities
             .WithAll<EnemyTag>()
             .ForEach(
-                (ref Translation trans, in MovementData mov) =>
+                (ref Translation trans, in Movement2D mov) =>
                 {
                     float3 nextPos = trans.Value;
                     nextPos.xy += (mov.direction * mov.speed * deltaTime);

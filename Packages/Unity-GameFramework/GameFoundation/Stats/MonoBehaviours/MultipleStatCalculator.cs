@@ -1,21 +1,26 @@
-﻿using d4160.Core;
+﻿using System.Collections.Generic;
+using System.Linq;
+using d4160.Core;
+using d4160.GameFramework;
 using d4160.Utilities;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.GameFoundation;
 using UnityExtensions;
 
-namespace d4160.Systems.Flow
+namespace d4160.GameFoundation
 {
-    public class MultipleStatCalculatorBase : MonoBehaviour, IMultipleStatCalculator
+    public class MultipleStatCalculator : MonoBehaviour, IMultipleStatCalculator
     {
         [InspectInline(canEditRemoteTarget = true, canCreateSubasset = true)]
         [SerializeField] protected MultipleStatCalculatorDefinitionBase m_statCalculatorDefinition;
         [SerializeField] protected bool m_calculateAtStart;
         [SerializeField] protected int m_difficultyLevelToSetAtStart;
-        [SerializeField] protected bool m_oneStatDefinitionForAll;
-        [SerializeField] protected UnityEvent m_onStatUpdated;
+        [SerializeField] protected UltEvent m_onStatUpdated;
 
         protected float[] m_statValues;
+
+        public UltEvent OnStatUpdated => m_onStatUpdated;
 
         public virtual float this[int index]
         {
@@ -48,14 +53,35 @@ namespace d4160.Systems.Flow
 
         protected virtual void Start()
         {
-            if (m_calculateAtStart)
-                CalculateStat(m_difficultyLevelToSetAtStart);
+            if (!m_calculateAtStart) return;
+
+            if (!InventoryManager.IsInitialized)
+            {
+                DefaultDataLoader.GameFoundationDataLoader.OnInitializeCompleted.DynamicCalls += CalculateStatsAtStart;
+            }
+            else
+            {
+                CalculateStatsAtStart();
+            }
         }
 
-        public virtual float[] CalculateStat(int difficultyLevel = 1)
+        protected virtual void OnDestroy()
+        {
+            if (InventoryManager.IsInitialized)
+                DefaultDataLoader.GameFoundationDataLoader.OnInitializeCompleted.DynamicCalls -= CalculateStatsAtStart;
+        }
+
+        protected void CalculateStatsAtStart()
+        {
+            CalculateStats(m_difficultyLevelToSetAtStart);
+        }
+
+        public virtual float[] CalculateStats(int difficultyLevel = 1)
         {
             if (m_statCalculatorDefinition)
-                FloatStats = m_statCalculatorDefinition.CalculateStat(difficultyLevel);
+            {
+                FloatStats = m_statCalculatorDefinition.CalculateStats(difficultyLevel);
+            }
 
             return FloatStats;
         }
@@ -63,7 +89,9 @@ namespace d4160.Systems.Flow
         public virtual float CalculateStat(int index, int difficultyLevel = 1)
         {
             if (m_statCalculatorDefinition)
+            {
                 this[index] = m_statCalculatorDefinition.CalculateStat(index, difficultyLevel);
+            }
 
             return this[index];
         }
@@ -77,8 +105,20 @@ namespace d4160.Systems.Flow
             }
         }
 
+        public virtual int AddStat(int statIndex = 0, int difficultyLevel = 1)
+        {
+            List<float> list = null;
+            list = m_statValues != null ? new List<float>(m_statValues) {default} : new List<float>(1){ default };
+
+            m_statValues = list.ToArray();
+
+            this[m_statValues.LastIndex()] = m_statCalculatorDefinition.CalculateStat(statIndex, difficultyLevel);
+
+            return m_statValues.LastIndex();
+        }
+
         [System.Serializable]
-        public class UnityEvent : UnityEvent<int, float>
+        public class UltEvent : UltEvents.UltEvent<int, float>
         {
         }
     }

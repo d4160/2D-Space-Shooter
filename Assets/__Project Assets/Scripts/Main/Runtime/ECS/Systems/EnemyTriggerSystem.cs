@@ -39,7 +39,7 @@ public class EnemyTriggerSystem : ComponentSystem
 
                     if (EntityManager.HasComponent<PlayerTag>(overlappingEntity))
                     {
-                        HealthData health = EntityManager.GetComponentData<HealthData>(overlappingEntity);
+                        Health health = EntityManager.GetComponentData<Health>(overlappingEntity);
                         health.lives -= 1;
 
                         commandBuffer.SetComponent(overlappingEntity, health);

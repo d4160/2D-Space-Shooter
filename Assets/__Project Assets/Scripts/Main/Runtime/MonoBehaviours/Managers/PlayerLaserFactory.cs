@@ -51,7 +51,7 @@ public class PlayerLaserFactory : EntityHybridFactoryBase<PlayerLaserFactory>
 
         if (_overrideSpeed > 0f)
         {
-            _entityManager.SetComponentData(newLaser, new MovementData
+            _entityManager.SetComponentData(newLaser, new Movement2D
             {
                 direction = new float2(0f, 1f),
                 speed = _overrideSpeed
