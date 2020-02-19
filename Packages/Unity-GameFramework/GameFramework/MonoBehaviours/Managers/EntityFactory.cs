@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace d4160.GameFramework
 {
-    public abstract class EntityFactoryBase<T> : Singleton<T>, IFactory<Entity>, IInitializable where T : MonoBehaviour
+    public class EntityFactory : MonoBehaviour, IFactory<Entity>, IInitializable
     {
         [Header("PREFAB OPTIONS")]
         [SerializeField] protected GameObject _prefab;
@@ -18,10 +18,8 @@ namespace d4160.GameFramework
 
         public virtual GameObject Prefab => _prefab;
 
-        protected override void Awake()
+        protected virtual void Awake()
         {
-            base.Awake();
-
             Initialize();
 
             ConvertGameObjectPrefab();
@@ -42,8 +40,7 @@ namespace d4160.GameFramework
 
         public virtual void Deinitialize()
         {
-            if (_assetStore != null)
-                _assetStore.Dispose();
+            _assetStore?.Dispose();
         }
 
         public virtual void ConvertGameObjectPrefab()
@@ -58,7 +55,5 @@ namespace d4160.GameFramework
         {
             return _entityManager.Instantiate(_entityPrefab);
         }
-
-        public abstract void EntityFactoryProcedure();
     }
 }

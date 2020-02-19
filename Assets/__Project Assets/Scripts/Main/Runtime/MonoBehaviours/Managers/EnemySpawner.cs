@@ -8,7 +8,7 @@ using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
 
-public class EnemySpawner : EntityHybridFactoryBase<EnemySpawner>
+public class EnemySpawner : EntityHybridFactory<EnemySpawner>
 {
     [Header("SPAWN OPTIONS")]
     [SerializeField] private Transform _enemiesParent;

@@ -7,7 +7,7 @@ using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
 
-public class PlayerLaserFactory : EntityHybridFactoryBase<PlayerLaserFactory>
+public class PlayerLaserFactory : EntityHybridFactory<PlayerLaserFactory>
 {
     [Header("SPAWN OPTIONS")]
     [SerializeField] private int _fireBySeconds = 3;

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace d4160.GameFramework
 {
-    public abstract class EntityHybridFactoryBase<T> : EntityFactoryBase<T>, IFactorySecond<GameObject> where T : MonoBehaviour
+    public abstract class HybridSpawnerBase : EntityFactory, IFactorySecond<GameObject> where T : MonoBehaviour
     {
         [Header("HYBRID OPTIONS")]
         [SerializeField] protected bool _useECS = false;

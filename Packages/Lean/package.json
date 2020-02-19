@@ -1,0 +1,29 @@
+{
+  "name": "carlos-wilkes.lean",
+  "displayName": "Lean Assets",
+  "version": "1.2.3",
+  "unity": "2017.4",
+  "description": "Improve the performance of your game within minutes using Lean Pool. This lightweight asset manages prefab spawning, despawning, recycling, and much more!",
+  "keywords": [
+    "object pool"
+  ],
+  "author": {
+    "name": "Carlos Wilkes"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "samples": [
+    {
+      "displayName": "Common",
+      "description": "Common",
+      "path": "Samples~/Common"
+    },
+    {
+      "displayName": "Pool",
+      "description": "Pool",
+      "path": "Samples~/Pool"
+    }
+  ]
+}

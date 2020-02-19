@@ -1,0 +1,15 @@
+{
+    "name": "Lean.Pool",
+    "references": [
+        "GUID:cdc8fde4cff52a74eabcd357585373b9"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
