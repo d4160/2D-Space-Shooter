@@ -1,4 +1,6 @@
-﻿using d4160.GameFramework;
+﻿using System;
+using d4160.GameFramework;
+using UltEvents;
 
 namespace GameFramework
 {
@@ -14,7 +16,10 @@ namespace GameFramework
 	/// Launch manager. Connect, join a random room or create one if none or all full.
 	/// </summary>
 	public class PUN2Launcher : MonoBehaviourPunCallbacks, INetworkingLauncher
-	{
+    {
+        [SerializeField] protected UltEvent _onConnectedToMaster;
+        [SerializeField] protected UltEvent _onJoinedRoom;
+		[SerializeField] protected UltEvent _onDisconnected;
 
 		#region Protected Fields
 		protected byte m_maxPlayersPerRoom;
@@ -26,7 +31,7 @@ namespace GameFramework
 		protected bool m_isConnecting;
 		#endregion
 
-		//public bool IgnoreCallbacks { get; set; } = true;
+		public Action OnConnected { get; set; }
 
 		#region MonoBehaviour CallBacks
 
@@ -35,6 +40,8 @@ namespace GameFramework
 		/// </summary>
 		public virtual void Awake()
 		{
+			Debug.Log("PUN2Launcher:Awake");
+
 			// #Critical
 			// this makes sure we can use PhotonNetwork.LoadLevel() on the master client and all clients in the same room sync their level automatically
 			PhotonNetwork.AutomaticallySyncScene = true;
@@ -50,7 +57,8 @@ namespace GameFramework
 		/// </summary>
 		public virtual void Connect(byte maxPlayersPerRoom, string version)
 		{
-            ProgressPrefabsManagerBase.Instance.InstancedMain.StartLoop();
+			if (ProgressPrefabsManagerBase.Instanced)
+                ProgressPrefabsManagerBase.Instance.InstancedMain?.StartLoop();
 
 			m_maxPlayersPerRoom = maxPlayersPerRoom;
 
@@ -109,10 +117,13 @@ namespace GameFramework
 			{
 				LogFeedback("OnConnectedToMaster: Next -> try to Join Random Room", 1.5f);
 				// #Critical: The first we try to do is to join a potential existing room. If there is, good, else, we'll be called back with OnJoinRandomFailed()
-                PhotonNetwork.JoinOrCreateRoom("Random", new RoomOptions() {MaxPlayers = 10}, null);
+                PhotonNetwork.JoinOrCreateRoom("Global", new RoomOptions() {MaxPlayers = 20}, null);
                 
                 m_isConnecting = false;
 			}
+
+            _onConnectedToMaster?.Invoke();
+            OnConnected?.Invoke();
 		}
 
 		/// <summary>
@@ -140,9 +151,14 @@ namespace GameFramework
 			LogFeedback("<Color=Red>OnDisconnected</Color> "+cause, 1.5f);
 
 			// #Critical: we failed to connect or got disconnected. There is not much we can do. Typically, a UI system should be in place to let the user attemp to connect again.
-			ProgressPrefabsManagerBase.Instance.InstancedMain.StopLoop();
+            if (ProgressPrefabsManagerBase.Instanced)
+            {
+                ProgressPrefabsManagerBase.Instance.InstancedMain?.StopLoop();
+			}
 
 			m_isConnecting = false;
+
+            _onDisconnected?.Invoke();
 		}
 
 		/// <summary>
@@ -162,7 +178,8 @@ namespace GameFramework
 
 			LogFeedback("<Color=Green>OnJoinedRoom</Color> with "+PhotonNetwork.CurrentRoom.PlayerCount+" Player(s)", 1.5f);
 
-			ProgressPrefabsManagerBase.Instance.InstancedMain.StopLoop();
+			if(ProgressPrefabsManagerBase.Instanced)
+			    ProgressPrefabsManagerBase.Instance.InstancedMain?.StopLoop();
 
 			// #Critical: We only load if we are the first player, else we rely on  PhotonNetwork.AutomaticallySyncScene to sync our instance scene.
 			if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
@@ -173,7 +190,7 @@ namespace GameFramework
 					() =>
                     {
                         Debug.Log(($"After UnloadAllStartedLevels"));
-						d4160.GameFramework.GameManager.Instance.LoadLevel(d4160.GameFramework.LevelType.GameMode, 2);
+						d4160.GameFramework.GameManager.Instance.LoadLevel(d4160.GameFramework.LevelType.GameMode, 1);
                     });
 			}
             else
@@ -182,7 +199,7 @@ namespace GameFramework
 				d4160.GameFramework.GameManager.Instance.UnloadLevel(LevelType.General, 1);
             }
 
-            //IgnoreCallbacks = true;
+            _onJoinedRoom?.Invoke();
 		}
 		#endregion
 	}

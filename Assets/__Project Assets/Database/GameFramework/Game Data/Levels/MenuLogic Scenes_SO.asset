@@ -15,6 +15,6 @@ MonoBehaviour:
   m_elements:
     array:
     - sceneAsset: {fileID: 102900000, guid: cd54a61ea83bf8344a06fb6e5e5f8e35, type: 3}
-      scenePath: Assets/__Project Assets/Scenes/Levels/Menu Logic/Menu 2.unity
-      sceneBuildIndex: 13
-      sceneName: Menu 2
+      scenePath: Assets/__Project Assets/Scenes/Levels/Menu Logic/MainMenu.unity
+      sceneBuildIndex: 2
+      sceneName: MainMenu

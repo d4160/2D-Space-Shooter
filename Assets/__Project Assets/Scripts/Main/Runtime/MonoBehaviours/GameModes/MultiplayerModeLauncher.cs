@@ -24,17 +24,18 @@
             PhotonNetwork.OnSyncLevelLoad -= OnSyncLevelLoad;
         }
 
-        private void OnSyncLevelLoad(int sceneBuildIndex)
+        protected void OnSyncLevelLoad(int sceneBuildIndex)
         {
-            GameManager.Instance.UnloadLevel(LevelType.GameMode, 2, () => {
+            Debug.Log($"OnSyncLevelLoad{sceneBuildIndex}");
+            GameManager.Instance.UnloadLevel(LevelType.GameMode, 1, () => {
 
-                if (GameManager.Instance.GetPlayLevelLauncher(2) is DefaultPlayLauncher)
-                {
-                    var chapter = (GameManager.Instance.GetPlayLevelLauncher(2) as DefaultPlayLauncher).CurrentChapter;
-                    chapter.LevelScene = new LevelScene() { levelCategory = 6, levelScene = PhotonNetwork.CurrentRoom.PlayerCount };
-                }
-
-                GameManager.Instance.LoadLevel(LevelType.GameMode, 2);
+                //if (GameManager.Instance.GetPlayLevelLauncher(1) is DefaultPlayLauncher)
+                //{
+                //    var chapter = (GameManager.Instance.GetPlayLevelLauncher(1) as DefaultPlayLauncher).CurrentChapter;
+                //    chapter.LevelScene = new LevelScene() { levelCategory = 6, levelScene = PhotonNetwork.CurrentRoom.PlayerCount };
+                //}
+                Debug.Log($"When Unload Completed");
+                GameManager.Instance.LoadLevel(LevelType.GameMode, 1);
             });
         }
 
@@ -43,7 +44,7 @@
             // in case we started this demo with the wrong scene being active, simply load the menu scene
 			if (!PhotonNetwork.IsConnected)
 			{
-				GameManager.Instance.UnloadLevel(LevelType.GameMode, 2, () => {
+				GameManager.Instance.UnloadLevel(LevelType.GameMode, 1, () => {
                     GameManager.Instance.LoadLevel(LevelType.General, 1);
                 });
 
@@ -59,16 +60,16 @@
 			}
             else
             {
-				//if (PlayerManager.LocalPlayerInstance==null)
-				//{
-				//    Debug.LogFormat("We are Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
+				if (NetworkingPlayer.LocalEntityInstance == null)
+				{
+                    Debug.LogFormat("We are Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
 
-				//	// we're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
-				//	PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f,5f,0f), Quaternion.identity, 0);
+                    //	// we're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
+                    NetworkingPlayer.LocalEntityInstance = PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f,0f,0f), Quaternion.identity, 0);
 				//}else{
 
 				//	Debug.LogFormat("Ignoring scene load for {0}", SceneManagerHelper.ActiveSceneName);
-				//}
+                }
 			}
         }
 
@@ -96,7 +97,7 @@
 			{
 				Debug.LogFormat( "OnPlayerEnteredRoom IsMasterClient {0}", PhotonNetwork.IsMasterClient ); // called before OnPlayerLeftRoom
 
-				LoadArena();
+				//LoadLevel();
 			}
 		}
 
@@ -114,7 +115,7 @@
 			{
 				Debug.LogFormat( "OnPlayerEnteredRoom IsMasterClient {0}", PhotonNetwork.IsMasterClient ); // called before OnPlayerLeftRoom
 
-				LoadArena();
+				//LoadLevel();
 			}
 		}
 
@@ -129,7 +130,7 @@
             Camera.main.orthographic = true;
             Camera.main.transform.SetPositionAndRotation(Vector3.back * 10, Quaternion.identity);
 
-            GameManager.Instance.UnloadLevel(LevelType.GameMode, 2, () => {
+            GameManager.Instance.UnloadLevel(LevelType.GameMode, 1, () => {
                 GameManager.Instance.LoadLevel(LevelType.General, 1);
             });
 
@@ -145,7 +146,7 @@
 
         #region Private Methods
 
-		void LoadArena()
+		void LoadLevel()
 		{
 			if ( ! PhotonNetwork.IsMasterClient )
 			{
@@ -156,10 +157,10 @@
 
 			//PhotonNetwork.LoadLevel("PunBasics-Room for "+PhotonNetwork.CurrentRoom.PlayerCount, LoadSceneMode.Additive);
 
-            GameManager.Instance.UnloadLevel(LevelType.GameMode, 2, () => {
-                var chapter = CurrentChapter;
-                chapter.LevelScene = new LevelScene() { levelCategory = 6, levelScene = PhotonNetwork.CurrentRoom.PlayerCount};
-                GameManager.Instance.LoadLevel(LevelType.GameMode, 2);
+            GameManager.Instance.UnloadLevel(LevelType.GameMode, 1, () => {
+                //var chapter = CurrentChapter;
+                //chapter.LevelScene = new LevelScene() { levelCategory = 6, levelScene = PhotonNetwork.CurrentRoom.PlayerCount};
+                GameManager.Instance.LoadLevel(LevelType.GameMode, 1);
             });
         }
 

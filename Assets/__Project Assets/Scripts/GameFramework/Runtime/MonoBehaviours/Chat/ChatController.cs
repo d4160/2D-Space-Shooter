@@ -13,7 +13,8 @@
 
             if (m_chatProvider != null)
             {
-				NotificationPrefabsManager.Instance.InstancedMain.Notify("Connecting to chat...", 1.5f);
+				if (NotificationPrefabsManager.Instanced)
+				    NotificationPrefabsManager.Instance.InstancedMain?.Notify("Connecting to chat...", 1.5f);
             }
         }
 
@@ -21,7 +22,8 @@
         {
             base.OnConnected();
 
-            NotificationPrefabsManager.Instance.InstancedMain.Notify("Chat connection success.", 1.5f);
+            if (NotificationPrefabsManager.Instanced)
+				NotificationPrefabsManager.Instance.InstancedMain?.Notify("Chat connection success.", 1.5f);
 		}
 
         public override void CreateChatProvider()

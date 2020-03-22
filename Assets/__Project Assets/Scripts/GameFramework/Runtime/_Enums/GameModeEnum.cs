@@ -3,6 +3,7 @@ namespace GameFramework
 {
 	public enum GameModeEnum
 	{
-		DefaultMode = 0,
+		Singleplayer = 0,
+		Multiplayer = 1,
 	}
 }

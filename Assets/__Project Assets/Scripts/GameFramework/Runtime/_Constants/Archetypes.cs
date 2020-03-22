@@ -11,18 +11,23 @@ namespace GameFramework
 		public const int Character = 5;
 		public const int UI = 6;
 		public const int Leaderboard = 7;
+		public const int Laser = 8;
+		public const int Enemy = 9;
+		public const int PowerUp = 10;
 
-		public const int Total = 8;
+		public const int Total = 11;
 
-		public static int GetFixed(int constant)
-		{
-			if (constant <= 3 && constant >= 0)
-				return constant + 1;
+        internal static int GetFixed(int entity)
+        {
+            if (entity >= 0 && entity < 4)
+            {
+                return entity + 1;
+            }
 
-			if (constant == Leaderboard)
-				return 5;
+            if (entity == 7)
+                return 5;
 
-			return -1;
-		}
+            return 0;
+        }
 	}
 }

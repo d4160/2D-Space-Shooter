@@ -15,7 +15,12 @@ MonoBehaviour:
   m_elements:
     array:
     - sceneAsset: {fileID: 102900000, guid: 9fc0d4010bbf28b4594072e72b8655ab, type: 3}
-      scenePath: Assets/__Project Assets/Scenes/Game Modes/Mode 1/Plays/Mode 1 -
-        MainPlayScene.unity
-      sceneBuildIndex: 1
-      sceneName: Mode 1 - MainPlayScene
+      scenePath: Assets/__Project Assets/Scenes/Game Modes/Singleplayer Mode/Plays/Singleplayer
+        Mode - MainPlayScene.unity
+      sceneBuildIndex: 3
+      sceneName: Singleplayer Mode - MainPlayScene
+    - sceneAsset: {fileID: 102900000, guid: 14125abe4b75e664cb71e2319a7a34ac, type: 3}
+      scenePath: Assets/__Project Assets/Scenes/Game Modes/Multiplayer Mode/Plays/Multiplayer
+        Mode - MainPlayScene.unity
+      sceneBuildIndex: -1
+      sceneName: Multiplayer Mode - MainPlayScene

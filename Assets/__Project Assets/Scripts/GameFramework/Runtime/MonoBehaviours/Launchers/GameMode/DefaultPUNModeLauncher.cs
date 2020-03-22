@@ -20,7 +20,16 @@ namespace GameFramework
             m_playingTime = 0f;
 
             if (m_startPlayingAutomatically)
-                Invoke("Play", m_delayToStartPlaying);
+            {
+                if (m_delayToStartPlaying > 0)
+                {
+                    Invoke("Play", m_delayToStartPlaying);
+                }
+                else
+                {
+                    Play();
+                }
+            }
         }
     }
 }

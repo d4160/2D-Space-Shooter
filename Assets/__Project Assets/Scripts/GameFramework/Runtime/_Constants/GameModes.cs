@@ -3,9 +3,10 @@ namespace GameFramework
 {
 	public static class GameModes
 	{
-		public const int DefaultMode = 0;
+		public const int Singleplayer = 0;
+		public const int Multiplayer = 1;
 
-		public const int Total = 1;
+		public const int Total = 2;
 
 
 	}

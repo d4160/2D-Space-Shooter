@@ -17,10 +17,22 @@ public class DestroyByLimitsSystem : JobComponentSystem
         Entities.ForEach((Entity entity, in Limits limits, in Translation trans) =>
         {
             float3 pos = trans.Value;
-            if (pos.y > limits.yUpperLimit)
+            switch (limits.side)
             {
-                ecb.DestroyEntity(entity);
+                case LimitSide.Lower:
+                    if (pos.y < limits.yLimit)
+                    {
+                        ecb.DestroyEntity(entity);
+                    }
+                    break;
+                case LimitSide.Upper:
+                    if (pos.y > limits.yLimit)
+                    {
+                        ecb.DestroyEntity(entity);
+                    }
+                    break;
             }
+            
         }).Run();
 
         ecb.Playback(EntityManager);

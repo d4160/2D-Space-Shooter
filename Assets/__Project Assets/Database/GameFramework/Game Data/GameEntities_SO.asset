@@ -16,17 +16,36 @@ MonoBehaviour:
     array:
     - m_name: GameMode
       m_id: 1
+      m_categories: []
     - m_name: World
       m_id: 2
+      m_categories: []
     - m_name: Level
       m_id: 3
+      m_categories: []
     - m_name: Player
       m_id: 4
+      m_categories: []
     - m_name: Camera
       m_id: 5
+      m_categories: []
     - m_name: Character
       m_id: 6
+      m_categories: []
     - m_name: UI
       m_id: 7
+      m_categories: []
     - m_name: Leaderboard
       m_id: 8
+      m_categories: []
+    - m_name: Laser
+      m_id: 9
+      m_categories:
+      - Player
+      - Enemy
+    - m_name: Enemy
+      m_id: 10
+      m_categories: []
+    - m_name: PowerUp
+      m_id: 11
+      m_categories: []

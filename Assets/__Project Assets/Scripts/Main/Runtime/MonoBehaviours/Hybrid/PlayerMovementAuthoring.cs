@@ -7,12 +7,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovementAuthoring : MovementAuthoring, IMultipleStatUpgradeable
 {
-    protected override void Update()
+    protected override void OnUpdate(float dt)
     {
-        DoMove();
+        DoMove(dt);
     }
 
-    private void DoMove()
+    private void DoMove(float dt)
     {
         SingleplayerModeManager manager = SingleplayerModeManager.Instance.As<SingleplayerModeManager>();
         Vector2 xLimits = manager.PlayerXLimits;
@@ -21,7 +21,7 @@ public class PlayerMovementAuthoring : MovementAuthoring, IMultipleStatUpgradeab
         _data.direction = manager.PlayerDirection;
 
         var pos = transform.position;
-        pos += (Vector3)(Vector2)_data.direction * _data.speed * Time.deltaTime;
+        pos += (Vector3)(Vector2)_data.direction * _data.speed * dt;
 
         transform.position = manager.PlayerPosition = CalculateFixedPosition(pos, yLimits, xLimits);
     }

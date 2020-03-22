@@ -11,5 +11,8 @@ namespace GameFramework
 		Character = 5,
 		UI = 6,
 		Leaderboard = 7,
+		Laser = 8,
+		Enemy = 9,
+		PowerUp = 10,
 	}
 }

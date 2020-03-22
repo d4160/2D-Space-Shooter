@@ -5,15 +5,27 @@ using d4160.GameFoundation;
 using UnityEngine;
 using UnityEngine.GameFoundation;
 
-[RequireComponent(typeof(MultipleTimerCalculator))]
+[RequireComponent(typeof(MultipleTimerCalculator), typeof(HealthAuthoring))]
+[RequireComponent(typeof(MovementAuthoring), typeof(EquipmentController))]
 public class PlayerMainInventoryAuthoring : InventoryController
 {
     private readonly Dictionary<int, int> _items = new Dictionary<int, int>();
+
     private MultipleTimerCalculator _timer;
+    private MovementAuthoring _mov;
+    private HealthAuthoring _health;
+    private EquipmentController _equipment;
+
+    private float _previousSpeed;
+    private bool _speedModified;
+    private GameObject _shieldInstance;
 
     protected void Awake()
     {
         _timer = GetComponent<MultipleTimerCalculator>();
+        _mov = GetComponent<MovementAuthoring>();
+        _health = GetComponent<HealthAuthoring>();
+        _equipment = GetComponent<EquipmentController>();
     }
 
     protected override void OnEnable()
@@ -50,14 +62,44 @@ public class PlayerMainInventoryAuthoring : InventoryController
                 var prefabAssets = item.GetDetailDefinition<PrefabAssetsDetailDefinition>();
                 if (prefabAssets)
                 {
-                    var prefab = prefabAssets.GetAsset("Prefab");
-                    PlayerLaserFactory.Instance.OverridenPrefab = prefab;
+                    //var prefab = prefabAssets.GetAsset("Prefab");
+                    SingleplayerModeManager.Instance.As<SingleplayerModeManager>().PlayerLaserSpawnProvider
+                        .SelectedSourceIndex = 1;
                 }
+
+                AddOrSetTimer(item);
+                break;
+
+            case "Speed PowerUp":
+                if (_speedModified) return;
+                
+                var modifier = item.GetStatFloat("speed");
+                _previousSpeed = _mov.Speed;
+                _mov.Speed *= modifier;
+
+                _speedModified = true;
+
+                AddOrSetTimer(item);
+                break;
+
+            case "Shield PowerUp":
+                if (!_shieldInstance)
+                {
+                    prefabAssets = item.GetDetailDefinition<PrefabAssetsDetailDefinition>();
+                    if (prefabAssets)
+                    {
+                        var prefab = prefabAssets.GetAsset("Prefab");
+
+                        _shieldInstance = Instantiate(prefab);
+                    }
+                }
+
+                _equipment.Equip(_shieldInstance);
+
+                _health.SetInvulnerable(true, item.hash);
 
                 break;
         }
-
-        ProcessItem(item);
 
         base.OnItemAdded(item);
     }
@@ -67,21 +109,36 @@ public class PlayerMainInventoryAuthoring : InventoryController
         switch (item.displayName)
         {
             case "TripleShot PowerUp":
-                
-                PlayerLaserFactory.Instance.OverridenPrefab = null;
+                SingleplayerModeManager.Instance.As<SingleplayerModeManager>().PlayerLaserSpawnProvider
+                    .SelectedSourceIndex = 0;
+                break;
 
+            case "Speed PowerUp":
+                if (!_speedModified) return;
+
+                _mov.Speed = _previousSpeed;
+                _speedModified = false;
+                break;
+
+            case "Shield PowerUp":
+                _equipment.Unequip();
+                _health.SetInvulnerable(false);
                 break;
         }
 
         base.OnItemRemoved(item);
     }
 
-    public void ProcessItem(InventoryItem item)
+    public void AddOrSetTimer(InventoryItem item)
     {
         if (!_items.ContainsKey(item.hash))
         {
-            var index = _timer.AddStat();
+            var index = _timer.AddNewStat(0);
             _items.Add(item.hash, index);
+        }
+        else
+        {
+            _timer.CalculateStat(_items[item.hash]);
         }
     }
 }

@@ -25,8 +25,8 @@ public class HealthSystem : JobComponentSystem
         ecb.Playback(EntityManager);
         ecb.Dispose();
 
-        if (destroyed)
-            EnemySpawner.Instance.StopSpawnRoutine();
+        //if (destroyed)
+        //    EnemySpawnProvider.Instance.StopSpawnRoutine();
 
         return default;
     }

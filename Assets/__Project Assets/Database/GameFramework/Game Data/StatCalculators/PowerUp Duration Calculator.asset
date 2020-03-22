@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5087f1c8126d18545b5ec4bd32fb9e37, type: 3}
   m_Name: PowerUp Duration Calculator
   m_EditorClassIdentifier: 
-  _useFirstStatForAllCalculations: 0
+  _useFirstStatForAllCalculations: 1
   _itemStatPairs:
     array:
     - item: 1

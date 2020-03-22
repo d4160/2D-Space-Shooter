@@ -1,5 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9206991382327924003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0045a420c8b2b474eb4c14cf512c1cb5, type: 3}
+  m_Name: speedPowerUp_InventoryItem_Detail_Stat
+  m_EditorClassIdentifier: 
+  m_StatDefaultIntValues_Keys: 
+  m_StatDefaultIntValues_Values: 
+  m_StatDefaultFloatValues_Keys: f6fe260f
+  m_StatDefaultFloatValues_Values:
+  - 1.5
 --- !u!114 &-8759115879808677718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36,6 +53,22 @@ MonoBehaviour:
   m_StatDefaultFloatValues_Keys: eaca6441
   m_StatDefaultFloatValues_Values:
   - 0
+--- !u!114 &-8037968516989810207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f2f0defaa6a04ebf8ab6928cabe7095, type: 3}
+  m_Name: shieldPowerUp_InventoryItem_Detail_PrefabAssets
+  m_EditorClassIdentifier: 
+  m_Keys:
+  - Prefab
+  m_Values:
+  - {fileID: 1902411551037590050, guid: f08457901f6734d45ba07f03c22dd1de, type: 3}
 --- !u!114 &-7839634815165020034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,6 +87,25 @@ MonoBehaviour:
   m_ReferenceDefinition: {fileID: -1821385166148359717}
   m_Categories: 
   m_DetailDefinitionValues: []
+--- !u!114 &-7453882485480551289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: speedPowerUp_InventoryItem
+  m_EditorClassIdentifier: 
+  m_DisplayName: Speed PowerUp
+  m_Id: speedPowerUp
+  m_Hash: -25597501
+  m_ReferenceDefinition: {fileID: 0}
+  m_Categories: 
+  m_DetailDefinitionValues:
+  - {fileID: -9206991382327924003}
 --- !u!114 &-6068725934135142499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +176,25 @@ MonoBehaviour:
   m_Categories: 
   m_DetailDefinitionValues:
   - {fileID: -8271640723892658773}
+--- !u!114 &-3779496083066816538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: shieldPowerUp_InventoryItem
+  m_EditorClassIdentifier: 
+  m_DisplayName: Shield PowerUp
+  m_Id: shieldPowerUp
+  m_Hash: -1988821885
+  m_ReferenceDefinition: {fileID: 0}
+  m_Categories: 
+  m_DetailDefinitionValues:
+  - {fileID: -8037968516989810207}
 --- !u!114 &-1821385166148359717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,6 +268,8 @@ MonoBehaviour:
   - {fileID: 8277750477074419712}
   - {fileID: -7839634815165020034}
   - {fileID: 1573851832099388060}
+  - {fileID: -7453882485480551289}
+  - {fileID: -3779496083066816538}
   m_DefaultCollectionDefinitions: []
 --- !u!114 &3038500289691076915
 MonoBehaviour:

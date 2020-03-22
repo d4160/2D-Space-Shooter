@@ -4,5 +4,12 @@ using Unity.Entities;
 [Serializable]
 public struct Limits : IComponentData
 {
-    public float yUpperLimit;
+    public LimitSide side;
+    public float yLimit;
+}
+
+public enum LimitSide
+{
+    Lower,
+    Upper
 }
